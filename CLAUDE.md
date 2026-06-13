@@ -40,7 +40,7 @@ guanlan/
 - 永远不要直接往 main 分支提交或推送代码。
 - 每次做改动前，先创建一个 feature 分支：git checkout -b feat/<简短描述>。
 - 在 feature 分支上完成开发并测试通过后，推送到远端：git push -u origin feat/<分支名>。
-- 然后在 GitHub 上创建一个 Pull Request（PR）合入 main。
-- PR 合入后，在本地切回 main，拉取最新代码，然后删除本地的 feature 分支。
+- 在 GitHub 上创建 Pull Request，但不要自己合并——合并由 GitHub 上的部署 agent 自动执行。
+- PR 合入后，在本地切回 main，拉取最新代码（git pull），然后删除本地的 feature 分支。
 - GitHub 仓库：git@github.com:shipitswq/guanlan.git
 - 默认分支：main
