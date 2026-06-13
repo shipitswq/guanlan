@@ -1,0 +1,33 @@
+# .pr_agent.toml —— 放在仓库根目录
+
+[config]
+# DeepSeek 通过 OpenAI 兼容接口接入
+model = "deepseek/deepseek-chat"
+# fallback 可选，建议和主模型一致
+fallback_models = ["deepseek/deepseek-chat"]
+# 输出语言设为中文（Review 评论会是中文）
+language = "zh-CN"
+
+[openai]
+# Key 从 GitHub Actions secrets 注入，这里留空
+key = ""
+api_base = "https://api.deepseek.com/v1"
+
+[pr_reviewer]
+# 自动在 PR 打开时做 review
+auto_review = true
+# 最多展示几条发现
+num_max_findings = 5
+# 是否检查测试覆盖（按需关）
+require_tests_review = false
+# 开启安全检查提示
+require_security_check = true
+
+[pr_description]
+# /describe 自动生成 PR 摘要
+publish_description_as_comment = true
+publish_labels = true
+
+[pr_code_suggestions]
+# /improve 建议条数
+num_code_suggestions = 3
