@@ -1,0 +1,29 @@
+name: Qodo PR-Agent (DeepSeek)
+
+on:
+  # PR 打开、重开、标记 ready、有新提交时自动触发
+  pull_request:
+    types: [opened, reopened, ready_for_review, synchronize]
+  # 支持 PR 评论区手动触发：/review  /describe  /improve 等
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+  pull-requests: write
+  contents: write
+
+jobs:
+  pr_agent:
+    # 防止 bot 评论触发无限循环
+    if: ${{ github.event.sender.type != 'Bot' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run PR-Agent with DeepSeek
+        uses: Codium-ai/pr-agent@main
+        env:
+          OPENAI_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 以下两行也可以在 .pr_agent.toml 里配，这里确保覆盖
+          github_action_config.auto_review: "true"
+          github_action_config.auto_describe: "true"
