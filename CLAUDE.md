@@ -34,3 +34,13 @@ guanlan/
 - 配置优先用 pydantic-settings（参考 `backend/app/config.py`）。
 - API 路由遵循 FastAPI 的 router 模式。
 - 业务逻辑优先复用 `services/` 层的模块，不要在 router 里重复实现。
+
+## Git 工作流
+
+- 永远不要直接往 main 分支提交或推送代码。
+- 每次做改动前，先创建一个 feature 分支：git checkout -b feat/<简短描述>。
+- 在 feature 分支上完成开发并测试通过后，推送到远端：git push -u origin feat/<分支名>。
+- 然后在 GitHub 上创建一个 Pull Request（PR）合入 main。
+- PR 合入后，在本地切回 main，拉取最新代码，然后删除本地的 feature 分支。
+- GitHub 仓库：git@github.com:shipitswq/guanlan.git
+- 默认分支：main
