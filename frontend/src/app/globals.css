@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #FAF8F5;
+  --bg-secondary: #FFFFFF;
+  --border: #E5E2DD;
+  --text-primary: #2C2824;
+  --text-secondary: #8B8278;
+  --primary: #D4835A;
+  --primary-hover: #C47A4A;
+  --success: #5A8F5A;
+  --danger: #C46A5A;
+  --warning: #C9A84C;
+  --highlight: #F0ECE7;
+  --primary-10: rgba(212, 131, 90, 0.10);
+  --danger-10: rgba(196, 106, 90, 0.10);
+  --success-10: rgba(90, 143, 90, 0.10);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+input, select, textarea {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 8px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--primary); }
+
+button { cursor: pointer; border: none; transition: all 0.15s; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--primary-hover); }
+
+.card { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; }
+
+.btn-primary { background: var(--primary); color: white; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; }
+.btn-primary:hover { background: var(--primary-hover); }
+
+.btn-ghost { background: transparent; color: var(--text-secondary); padding: 6px 12px; border-radius: 6px; font-size: 12px; }
+.btn-ghost:hover { background: var(--highlight); color: var(--text-primary); }
+
+.badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+.badge-green { background: var(--success-10); color: var(--success); }
+.badge-red { background: var(--danger-10); color: var(--danger); }
+.badge-orange { background: var(--primary-10); color: var(--primary); }

@@ -1,0 +1,51 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Bundled Python runtime
+python312/
+python312.zip
+
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Next.js build output
+.next/
+frontend/.next/
+frontend/next-env.d.ts
+
+# Environment variables (contains API keys)
+.env
+backend/.env
+
+# Database files (simulated trading data)
+*.db
+stock_sim.db
+backend/stock_sim.db
+
+# Data cache (akshare data)
+data_cache/
+
+# Test cache
+.pytest_cache/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Leftover scripts
+fix_labels.js
+fix_labels2.js
+fix_labels3.js
+.codex/
