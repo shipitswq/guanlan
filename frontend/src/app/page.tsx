@@ -104,7 +104,9 @@ export default function Dashboard() {
 
 function StatCard({ icon, label, value, sub, isPositive }: { icon: React.ReactNode; label: string; value: string; sub?: string; isPositive?: boolean }) {
   return (
-    <div className="card" style={{ padding: 18 }}>
+    <div className="card" style={{ padding: 18, cursor: "default", transition: "all 0.2s ease" }}
+      onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.08)"; }}
+      onMouseLeave={e => { e.currentTarget.style.transform = ""; e.currentTarget.style.boxShadow = ""; }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
         {icon}
         <span style={{ fontSize: 12, color: "var(--text-secondary)" }}>{label}</span>
