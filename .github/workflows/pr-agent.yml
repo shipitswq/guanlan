@@ -14,12 +14,6 @@ permissions:
   contents: write
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run dummy check
-        run: echo "CI passed"
   pr_agent:
     # 防止 bot 评论触发无限循环
     if: ${{ github.event.sender.type != 'Bot' }}
