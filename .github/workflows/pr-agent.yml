@@ -14,12 +14,13 @@ permissions:
   contents: write
 
 jobs:
-  test:
+  enable:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Run dummy check
-        run: echo "CI passed"
+      - name: Enable auto-merge
+        run: gh pr merge ${{ github.event.pull_request.number }} --auto --squash --delete-branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   pr_agent:
     # 防止 bot 评论触发无限循环
     if: ${{ github.event.sender.type != 'Bot' }}
