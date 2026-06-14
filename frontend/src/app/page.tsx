@@ -7,12 +7,13 @@ import { api, AgentData } from "@/lib/api";
 export default function Dashboard() {
   const [agents, setAgents] = useState<AgentData[]>([]);
   const [loading, setLoading] = useState(true);
+  const [lastUpdated, setLastUpdated] = useState<string | null>(null);
 
   useEffect(() => {
     api.getAgents()
       .then(r => setAgents(r || []))
       .catch(() => {})
-      .finally(() => setLoading(false));
+      .finally(() => { setLoading(false); setLastUpdated(new Date().toLocaleString("zh-CN")); });
   }, []);
 
   const sorted = [...agents].sort((a, b) => b.return_rate - a.return_rate);
@@ -25,8 +26,15 @@ export default function Dashboard() {
   return (
     <div>
       <div style={{ marginBottom: 28 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+          <div>
         <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--text-primary)", margin: 0 }}>总览面板</h2>
-        <p style={{ fontSize: 13, color: "var(--text-secondary)", marginTop: 4 }}>模拟盘全局概览</p>
+        <p style={{ fontSize: 13, color: "var(--text-secondary)", marginTop: 4 }}>
+          模拟盘全局概览
+          {lastUpdated && <span style={{ marginLeft: 12, fontSize: 11, color: "var(--text-secondary)" }}>最后更新 {lastUpdated}</span>}
+        </p>
+          </div>
+        </div>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 14, marginBottom: 28 }}>
