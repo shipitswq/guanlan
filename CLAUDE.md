@@ -36,7 +36,7 @@ guanlan/
 - 业务逻辑优先复用 `services/` 层的模块，不要在 router 里重复实现。
 
 ## Git 工作流
-- 推送后自动在 GitHub 上创建 Pull Request（优先用 gh CLI，不可用时用浏览器导航到 PR 页面），但不要自己合并——合并由 GitHub 上的部署 agent 自动执行。
+- 使用 C:\Program Files\GitHub CLI\gh.exe 推送后自动在 GitHub 上创建 Pull Request，但不要自己合并——合并由部署 agent 自动执行。
 
 - 永远不要直接往 main 分支提交或推送代码。
 - 每次做改动前，先切到 main 拉取最新代码（git pull），然后创建 feature 分支：git checkout -b feat/<简短描述>。
