@@ -26,6 +26,15 @@ require_security_check = true
 approve_open_issues_above = 0   # 有 ≥此级别问题时不 approve，默认 0 表示无问题才 approve
 # 或者用（部分版本）：
 final_decision_by = "reviewer"   # AI 根据严重程度决定是否 approve
+# 按严重性分类：critical > major > minor
+severity_levels = ["critical", "major", "minor"]
+
+[pr_labels]
+# 自动根据 review 结果打标签
+enable = true
+approved_label = "✅ AI Approved"
+changes_requested_label = "🔴 AI Changes Requested"
+needs_review_label = "👀 AI Needs Review"
 
 [pr_description]
 # /describe 自动生成 PR 摘要
