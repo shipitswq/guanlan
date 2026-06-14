@@ -47,3 +47,9 @@ guanlan/
 ## 自动提 PR 流程
 
 - 当用户说"提交"或"提 PR"时，不再只做 git add + git commit，而是自动走完整流程：切到 main 拉取最新代码 -> 创建 feature 分支 -> commit -> push -> 在 GitHub 创建 PR。完成后告知用户 PR 链接。
+## GitHub 凭证
+
+- GitHub Token (classic PAT) 已存入 Windows Credential Manager（protocol=https, host=github.com），后续推送和 API 调用可直接复用。如需调用 GitHub REST API，从凭证管理器读取即可。
+## PR 追踪
+
+- 创建 PR 后，必须追踪 PR 最终是否被合并。使用 heartbeat automation 定期检查 PR 状态（合并/关闭/开放），一旦发现状态变更，告知用户。
