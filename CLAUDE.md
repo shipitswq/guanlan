@@ -44,3 +44,6 @@ guanlan/
 - PR 合入后，在本地切回 main，拉取最新代码（git pull），然后删除本地的 feature 分支。
 - GitHub 仓库：git@github.com:shipitswq/guanlan.git
 - 默认分支：main
+## 自动提 PR 流程
+
+- 当用户说"提交"或"提 PR"时，不再只做 git add + git commit，而是自动走完整流程：切到 main 拉取最新代码 -> 创建 feature 分支 -> commit -> push -> 在 GitHub 创建 PR。完成后告知用户 PR 链接。
